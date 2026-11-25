@@ -1,24 +1,48 @@
-% Earth Departure 
-
-
-
-
-
+% Constants
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Fly By
+% Earth Departure 
+% Lecture 18
+
+V_inf = V_sc_E; % velocity of space craft wrt Earth
+
+V_phyp = sqrt((V_inf^2)+((2*mu_E)/rp)); % 
+V_ppark = sqrt(mu_E/rp);
+
+
+delta_V = abs(V_phyp - V_ppark);
+
+% departure
+
+V_inf_dep = 
+deleta_Vd = V_inf_dep; 
 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fly By: Earth to Jupiter 
+% Lecture 20
 
+% Equations for Trailing Side Fly By
 
+% Entrance
+V_sp % velocity of planet wrt to Sun
+V_inf_I % = V_sc_pI w/r to planet 
+C3_ent = (V_inf_I)^2;
+V_sc_sI = V_sp + V_inf_I;
 
+% Exit
+V_inf_II % = V_sc_pII 
+C3_ext = (V_inf_II)^2;
+V_sc_sII = V_sp + V_inf_II; 
 
-TOF_2 = (pi/sqrt(mu_Sun))*((R1+R2)/2)^(3/2);
+delta_Vs = V_sc_sII - V_sc_sI; % instantaneous wrt to Sun
+
+TOF_2 = (pi/sqrt(mu_Sun))*((R1+R2)/2)^(3/2); % Earth to Jupiter?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

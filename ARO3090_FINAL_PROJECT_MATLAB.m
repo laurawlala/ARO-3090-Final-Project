@@ -1,32 +1,18 @@
+% Constants
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Earth Departure 
 
 
-
-
-
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Fly By
+% Fly By: Earth to Jupiter 
 
-
-
-
-
-
-
-
-TOF_2 = (pi/sqrt(mu_Sun))*((R1+R2)/2)^(3/2);
-
+[V_inf_dep, V_inf_arr] = Lambert_val(15,5,23,3,4,4,66)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Saturn Arrival 
-
-V_sca % velocity of space craft at arrival
-V_sa % velocity of Saturn at arrival
-
-delta_v = abs(V_sa - V_sca);
 
 
