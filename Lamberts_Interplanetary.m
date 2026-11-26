@@ -1,30 +1,4 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Written by Dr. Marco Maggia                        %
-% Aerospace Engineering Department                   %
-% California Polytechnic State University, Pomona    %
-% Orbital Mechanics - ARO 3090                       %
-%                                                    %
-% Before sharing the code, please ask for permission.%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clc;clear;close all
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%% EDITABLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Departure & Arrival Planets
-Planet_1 = 'Earth'; % Departure Planet
-Planet_2 = 'Jupiter'; % Arrival Planet
-
-%% Launch Date 
-yyyy = 2024;
-  mm = 7;
-  dd = 22;
-
-%% Time of Flight (TOF)
-TOF = 1388.65; % [days]
-
-[V_inf_dep, V_inf_arr] = Lambert_val('Earth','Mars',2024,7,22,TOF)
-
-function [V_inf_dep, V_inf_arr] = Lambert_val(Planet_1,Planet_2,yyyy,mm,dd,TOF)
+function [V_inf_dep, V_inf_arr] = Lamberts_Interplanetary(Planet_1,Planet_2,yyyy,mm,dd,TOF)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% %%%%%%%%%%%%%%%%%%%%%%%%% DO NOT EDIT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,15 +27,15 @@ if R1==R2
     fprintf('Please select two different planets.\n\n')
     return
 end
-fprintf('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
-fprintf('             Hohmann Transfer from %s to %s \n\n',Planet_1,Planet_2)
-fprintf('     Observer (O): %s, Primary (P): Sun, Target (T): %s\n',Planet_1,Planet_2)
-fprintf('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
-fprintf('O-P-T Angle at Departure:      phi = %.1f deg   (0 < phi < 180 deg)\n',phi_dep)    
-fprintf('          Time of Flight:      TOF = %.0f days\n',Tt/86400/2)  
-fprintf('          Synodic Period:    T_Syn = %.0f days\n\n',T_syn/86400)  
-fprintf('V_inf (dep)  = %.3f km/s,  C3 (dep) =  %.1f km^2/s^2\n',V_inf_dep, V_inf_dep^2)
-fprintf('V_inf (arr)  = %.3f km/s,  C3 (arr) =  %.1f km^2/s^2\n\n',V_inf_arr, V_inf_arr^2)
+%fprintf('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+%fprintf('             Hohmann Transfer from %s to %s \n\n',Planet_1,Planet_2)
+%fprintf('     Observer (O): %s, Primary (P): Sun, Target (T): %s\n',Planet_1,Planet_2)
+%fprintf('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+%fprintf('O-P-T Angle at Departure:      phi = %.1f deg   (0 < phi < 180 deg)\n',phi_dep)    
+%fprintf('          Time of Flight:      TOF = %.0f days\n',Tt/86400/2)  
+%fprintf('          Synodic Period:    T_Syn = %.0f days\n\n',T_syn/86400)  
+%fprintf('V_inf (dep)  = %.3f km/s,  C3 (dep) =  %.1f km^2/s^2\n',V_inf_dep, V_inf_dep^2)
+%fprintf('V_inf (arr)  = %.3f km/s,  C3 (arr) =  %.1f km^2/s^2\n\n',V_inf_arr, V_inf_arr^2)
 
 tic
 %% Julian Dates for Departure
@@ -254,29 +228,29 @@ end
 % Orbital Elements of Planet 2 at Arrival
 [e_P2,a_P2,i_P2,w_P2,Om_P2,~,~,h_P2] = func_RVtoOE(r2_vec,VP2_arr,mu);
 
-fprintf('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
-fprintf('        Interplanetary %s-to-%s Orbit Characteristics:\n',Planet_1,Planet_2)
-fprintf('\n%s',orbit_choice)
-fprintf('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
-fprintf('       Semi-Major Axis:    a  = %.1f km\n',a)
-fprintf('          Eccentricity:    e  = %.4f\n'   ,e)
-fprintf('      Periapsis Radius:   rp = %.1f km\n',a*(1-e))
-fprintf('       Apoapsis Radius:   ra = %.1f km\n',a*(1+e))
-fprintf('                Period:    T = %.1f days\n\n',2*pi/sqrt(mu)*a^1.5/86400)
+%fprintf('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+%fprintf('        Interplanetary %s-to-%s Orbit Characteristics:\n',Planet_1,Planet_2)
+%fprintf('\n%s',orbit_choice)
+%fprintf('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+%fprintf('       Semi-Major Axis:    a  = %.1f km\n',a)
+%fprintf('          Eccentricity:    e  = %.4f\n'   ,e)
+%fprintf('      Periapsis Radius:   rp = %.1f km\n',a*(1-e))
+%fprintf('       Apoapsis Radius:   ra = %.1f km\n',a*(1+e))
+%fprintf('                Period:    T = %.1f days\n\n',2*pi/sqrt(mu)*a^1.5/86400)
 
-fprintf('R.A. of Ascending Node:   Om = %.1f  deg\n',Om)
-fprintf('           Inclination:    i = %.1f  deg\n',i)
-fprintf(' Argument of Periapsis:    w = %.1f  deg\n',w)
+%fprintf('R.A. of Ascending Node:   Om = %.1f  deg\n',Om)
+%fprintf('           Inclination:    i = %.1f  deg\n',i)
+%fprintf(' Argument of Periapsis:    w = %.1f  deg\n',w)
 
-fprintf('~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \n')
+%fprintf('~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \n')
 
-fprintf('True Anomaly of S/C at Departure:  TA_1 = %3.1f  deg\n'  ,TA1)
-fprintf('True Anomaly of S/C at   Arrival:  TA_2 = %3.1f  deg\n',TA2)
-fprintf('              Delta True Anomaly:         %3.1f  deg\n',mod(TA2-TA1,360))
-fprintf('                  Time of Flight:   TOF = %3.0f  days\n\n',TOF)
+%fprintf('True Anomaly of S/C at Departure:  TA_1 = %3.1f  deg\n'  ,TA1)
+%fprintf('True Anomaly of S/C at   Arrival:  TA_2 = %3.1f  deg\n',TA2)
+%fprintf('              Delta True Anomaly:         %3.1f  deg\n',mod(TA2-TA1,360))
+%fprintf('                  Time of Flight:   TOF = %3.0f  days\n\n',TOF)
 
-fprintf('At Departure:  v_inf = %.3f  km/s, C3 = %.1f km^2/s^2\n',sqrt(C3_dep),C3_dep)
-fprintf('At   Arrival:  v_inf = %.3f  km/s, C3 = %.1f km^2/s^2\n',sqrt(C3_arr),C3_arr)
+%fprintf('At Departure:  v_inf = %.3f  km/s, C3 = %.1f km^2/s^2\n',sqrt(C3_dep),C3_dep)
+%fprintf('At   Arrival:  v_inf = %.3f  km/s, C3 = %.1f km^2/s^2\n',sqrt(C3_arr),C3_arr)
 
 %% S/C Orbit
 R_PI = func_RPI(Om,i,w);
