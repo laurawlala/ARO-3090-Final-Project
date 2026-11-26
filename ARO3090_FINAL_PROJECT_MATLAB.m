@@ -11,7 +11,7 @@
 Planet_1 = 'Earth';
 Plnet_2 = 'Jupiter';
 
-% Fly By Date
+% Fly By Date or Launch date?
 yyyy = 2038;
 mm = 1;
 dd = 1;
@@ -38,7 +38,7 @@ V_inf_arr = V_inf_arr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 if abs(V_inf_fb1) == abs(V_inf_fb2)
-    
+
 
 
 
