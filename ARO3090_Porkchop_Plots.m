@@ -12,25 +12,22 @@ clc;clear;close all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Departure & Arrival Planets
 Planet_1 = 'Earth';   % Departure Planet
-Planet_2 = 'Venus';   % Arrival Planet
+Planet_2 = 'Mars';   % Arrival Planet
 
 %% Launch Dates 
 % First and Last possible launch dates
-Before_ILD = -94; %[<0 days] before Hohmann     (Recommended: Mercury=-50, Venus=-90, Mars=-120, Jupiter,Saturn,Uranus,Neptune=-50)
-After_ILD  = 636; %[>0 days] after Hohmann      (Recommended: Mercury=+50, Venus=+90, Mars=+120, Jupiter,Saturn,Uranus,Neptune=+50)  
-dJD = 1;          %[days] Launch date increment (Recommended: All Planets<=1)
-
-%%%%%%%%%%%%%%%%%These Before ILD and After ILD dates are estimates for start of 2038
-%to end of 2039%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Before_ILD = -120; %[<0 days] before Hohmann     (Recommended: Mercury=-50, Venus=-90, Mars=-120, Jupiter,Saturn,Uranus,Neptune=-50)
+After_ILD  = 120;  %[>0 days] after Hohmann       (Recommended: Mercury=+50, Venus=+90, Mars=+120, Jupiter,Saturn,Uranus,Neptune=+50)  
+dJD = 5;           %[days] Launch date increment (Recommended: All Planets<=1)
 
 %% Time of Flight (TOF)
-TOF_min = 80;   %[days] Minimum TOF   (Recommended: Mercury=50,  Venus=80,  Mars=80, Jupiter=400,  Saturn=900,  Uranus=2500, Neptune=5000)
-TOF_max = 200;  %[days] Maximum TOF   (Recommended: Mercury=150, Venus=200, Mars=500, Jupiter=1500, Saturn=3500, Uranus=8000, Neptune=10000)
-dTOF = 2;       %[days] TOF increment (Recommended: Mercury<=1,  Venus<=2,  Mars<=5,  Jupiter<=10,  Saturn<=40,  Uranus<=100, Neptune<=100)
+TOF_min = 150;   %[days] Minimum TOF   (Recommended: Mercury=50,  Venus=80,  Mars=80, Jupiter=400,  Saturn=900,  Uranus=2500, Neptune=5000)
+TOF_max = 400;  %[days] Maximum TOF   (Recommended: Mercury=150, Venus=200, Mars=500, Jupiter=1500, Saturn=3500, Uranus=8000, Neptune=10000)
+dTOF = 10;       %[days] TOF increment (Recommended: Mercury<=1,  Venus<=2,  Mars<=5,  Jupiter<=10,  Saturn<=40,  Uranus<=100, Neptune<=100)
 
 %% Minimum/Maximum C3 Capability
 C3_min = 0;        %[km^2/s^2]
-C3_max = 78;    %[km^2/s^2]
+C3_max = 136.67;    %[km^2/s^2]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% %%%%%%%%%%%%%%%%%%%%%%%%% DO NOT EDIT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
